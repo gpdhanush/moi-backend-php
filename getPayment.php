@@ -13,7 +13,7 @@ $conn = $db_connection->dbConnection();
 $data = json_decode(file_get_contents("php://input"));
 
 if (empty($data->id)) {
-$sql = "SELECT * FROM payment_master WHERE (pm_um_id=0 or pm_um_id='$data->userId') ORDER BY pm_name ASC";
+$sql = "SELECT * FROM payment_master WHERE pm_um_id='$data->userId' ORDER BY pm_name ASC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 } else {
