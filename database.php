@@ -8,9 +8,9 @@ class Database{
     // private $db_password = '';
 
     // LIVE 
-    private $db_name = 'hellonew_gp_expense';
-    private $db_username = 'hellonew_gp_expense';
-    private $db_password = '21727195@GP@kt';
+    private $db_name = 'prakashd_gp_db';
+    private $db_username = 'prakashd_gp_db';
+    private $db_password = 'GP@kt@1995';
 
     public function dbConnection() {
         try{
