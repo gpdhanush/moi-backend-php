@@ -13,7 +13,7 @@ $conn = $db_connection->dbConnection();
 $data = json_decode(file_get_contents("php://input"));
 
 if (empty($data->id)) {
-$sql = "SELECT * FROM payment_master WHERE (pm_user_id=0 or pm_user_id='$data->userId') ORDER BY pm_name ASC";
+$sql = "SELECT * FROM payment_master WHERE (pm_um_id=0 or pm_um_id='$data->userId') ORDER BY pm_name ASC";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 } else {
@@ -31,10 +31,10 @@ if($stmt->rowCount() > 0){
         $post_data = [
             'id' => $row['pm_id'],
             'value' => $row['pm_name'],
-            'userId' => $row['pm_user_id'],
+            'userId' => $row['pm_um_id'],
             'createDt' => $row['pm_create_dt'],
             'updateDt' => $row['pm_update_dt'],
-            'active' => $row['pm_active']
+            'active' => $row['pm_status']
         ];
         // PUSH POST DATA IN OUR $posts_array ARRAY
         array_push($posts_array1, $post_data);
