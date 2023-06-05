@@ -1,6 +1,6 @@
 <?php
 class Database{
-    private $db_host = 'localhost';
+    private $db_host = 'prakashdelight.in';
     
     // LOCAL DEVELOPMENT & TESTING
     // private $db_name = 'hellonew_gp_expense';
