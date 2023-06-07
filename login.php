@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 
 
-$query = "SELECT * FROM user_master WHERE um_username='" . $data->username . "' AND um_password='" .$data->password . "' AND um_active = 'Y'";
+$query = "SELECT * FROM user_master WHERE user_name='" . $data->username . "' AND user_pass='" .$data->password . "' AND user_status = 'Y'";
 
 $stmt = $conn-> prepare($query);
 
@@ -39,25 +39,21 @@ if($stmt->rowCount() > 0){
 
             "responseValue" => [ 
 
-                    "id" => $row['um_id'],
+                    "id" => $row['user_id'],
 
-                    "name" => $row['um_name'],
+                    "name" => $row['user_name'],
 
-                    "username" => $row['um_username'],
+                    "username" => $row['user_pass'],
 
-                    "email" => $row['um_email'],
+                    "email" => $row['user_email'],
 
-                    "mobile" => $row['um_mobile'],
+                    "mobile" => $row['user_mobile'],
 
-                    "last_login" => $row['um_last_login'],
+                    "create_dt" => $row['user_created_dt'],
 
-                    "profile" => $row['um_profile_url'],
+                    "update_dt" => $row['user_update_dt'],
 
-                    "create_dt" => $row['um_create_dt'],
-
-                    "update_dt" => $row['um_update_dt'],
-
-                    "active" => $row['um_active']
+                    "active" => $row['user_status']
                 ]);
 
 }
