@@ -30,7 +30,7 @@ if (empty($data->id)) {
         VALUES ('$data->userId', '$date1', '$data->name','$data->amount')";
 } else {
     $query = "UPDATE camera_amount SET 
-            cm_um_id='$userId',
+            cm_um_id='$data->userId',
             cm_date='$date1',
             cm_name='$data->name',
             cm_amount='$data->amount'
