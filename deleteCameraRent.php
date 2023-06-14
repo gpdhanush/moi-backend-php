@@ -12,7 +12,7 @@ $db_connection = new Database();
 $conn = $db_connection->dbConnection();
 $data = json_decode(file_get_contents("php://input"));
 
-$sql = "DELETE FROM camera_amount WHERE cm_id='$data->id' ";
+$sql = "DELETE FROM camera_amount WHERE cm_id='$data->id' AND cm_um_id='$data->userId' ";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 
